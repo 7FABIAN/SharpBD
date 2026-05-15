@@ -56,5 +56,19 @@ namespace ejemploBd
 		{
 			
 		}
+		
+		void VerpreguntasClick(object sender, EventArgs e)
+		{
+						
+		if (dgvModulos.CurrentRow == null) return;
+			
+			    // Obtener el ID y Nombre de la fila actual
+			    int idModulo = Convert.ToInt32(dgvModulos.CurrentRow.Cells["id"].Value);
+			    string nombreMod = dgvModulos.CurrentRow.Cells["nombre_es"].Value.ToString();
+			
+			    // Abrir el formulario de preguntas pasando los parámetros
+			    GestionPreguntas frm = new GestionPreguntas(idModulo, nombreMod);
+			    frm.ShowDialog();
+		}
 	}
 }
